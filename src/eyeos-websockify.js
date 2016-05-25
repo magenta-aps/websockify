@@ -47,7 +47,7 @@ if (globalConfig.useWithoutCluster) {
 	var websockifyServer = new Server(httpsServer, 0);
 	websockifyServer.start(false);
     var notifier = new Notifier();
-    notifier.registerService();
+   // notifier.registerService();
 } else {
     if (cluster.isMaster) {
         logger.info('# [' + (new Date()).getTime() + '] Starting Websockify service');
@@ -62,7 +62,7 @@ if (globalConfig.useWithoutCluster) {
         httpsServer.listen(globalConfig.source.port + 1);
 
         var notifier = new Notifier();
-        notifier.registerService();
+//        notifier.registerService();
 
         for (var i = 0; i < globalConfig.local.workers; i++) {
             var worker = cluster.fork();

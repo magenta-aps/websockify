@@ -28,9 +28,9 @@ var WhiteList = require('../whitelist/whitelist.js');
 
 var whitelistSettings = {
 	enableHost: false,
-	hosts: ['localhost'],
+	hosts: ['localhost', 'open365'],
 	enableMask: false,
-	subnets: ['192.168.3.0/24'],
+	subnets: ['192.168.99.0/24'],
 	minPort:5900,
 	maxPort:61614
 };
@@ -39,7 +39,7 @@ var config = {
 
 	// == Settings
 
-	protocol: process.env.EYEOS_WEBSOCKIFY_PROTOCOL || 'https',
+	protocol: process.env.EYEOS_WEBSOCKIFY_PROTOCOL || 'http',
 	useWithoutCluster: process.env.EYEOS_WEBSOCKIFY_USE_WITHOUT_CLUSTER === "true" || false,
 
 	secretSharer: {
@@ -53,12 +53,12 @@ var config = {
 
 	source:{
 		protocol: process.env.EYEOS_WEBSOCKIFY_WEBSOCKET_PROTOCOL || 'binary',
-		port: process.env.EYEOS_WEBSOCKIFY_WEBSOCKET_PORT || 8100
+		port: process.env.EYEOS_WEBSOCKIFY_WEBSOCKET_PORT || 8000
 	},
 
 	target:{
-		host:'127.0.0.1',
-		port:5900,
+		host:'192.168.99.100',
+		port:32790,
 		allowHalfOpen:false,
 		type: 'raw'
 	},
